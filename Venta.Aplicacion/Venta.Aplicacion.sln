@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B87EFED7-8AB3-4B8E-9669-5CC5DA695B72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{2389DFDA-5B1F-4BD8-AB30-8EFDFA811100}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{4E0FF60B-ED6E-498E-B76A-2EB19206E86F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ventas.Application", "Ventas.Application\Ventas.Application.csproj", "{66B3E380-2B05-47E4-88E3-05E9A79F2DC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66B3E380-2B05-47E4-88E3-05E9A79F2DC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66B3E380-2B05-47E4-88E3-05E9A79F2DC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66B3E380-2B05-47E4-88E3-05E9A79F2DC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66B3E380-2B05-47E4-88E3-05E9A79F2DC1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2389DFDA-5B1F-4BD8-AB30-8EFDFA811100} = {B87EFED7-8AB3-4B8E-9669-5CC5DA695B72}
+		{4E0FF60B-ED6E-498E-B76A-2EB19206E86F} = {B87EFED7-8AB3-4B8E-9669-5CC5DA695B72}
+		{66B3E380-2B05-47E4-88E3-05E9A79F2DC1} = {2389DFDA-5B1F-4BD8-AB30-8EFDFA811100}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B5C3B584-924D-4AE4-83A5-67A56540CF9B}
+	EndGlobalSection
+EndGlobal
