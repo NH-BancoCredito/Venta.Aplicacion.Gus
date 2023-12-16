@@ -9,13 +9,13 @@ namespace Venta.Domain.Repositories
 {
     public interface IProductoRepository
     {
-        bool Adicionar(Producto entity);
-        bool Modificar(Producto entity);
-        bool Eliminar(Producto entity);
+        Task<bool> Adicionar(Producto entity);
+        Task<bool> Modificar(Producto entity);
+        Task<bool> Eliminar(Producto entity);
 
-        Producto Consultar(int enidtity);
+        Task<Producto> Consultar(int enidtity);
 
-        IEnumerable<Producto>Consultar(string nombre);
+        Task<IEnumerable<Producto>> Consultar(string nombre);
 
 
     }
