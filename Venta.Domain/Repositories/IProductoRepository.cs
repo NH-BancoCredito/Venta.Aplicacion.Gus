@@ -13,7 +13,7 @@ namespace Venta.Domain.Repositories
         Task<bool> Modificar(Producto entity);
         Task<bool> Eliminar(Producto entity);
 
-        Task<Producto> Consultar(int enidtity);
+       // Task<Producto> Consultar(int enidtity);
 
         Task<IEnumerable<Producto>> Consultar(string nombre);
 
