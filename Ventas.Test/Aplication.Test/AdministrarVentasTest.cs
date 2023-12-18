@@ -19,7 +19,9 @@ public class AdministrarVentasTest
 
         _productoRepository = Substitute.For<IProductoRepository>();
         _ventaRepository = Substitute.For<IVentaRepository>();
-        _registrarVentaHandler = Substitute.For<RegistrarVentaHandler>(_productoRepository, _mapper);
+        _registrarVentaHandler = Substitute.For<RegistrarVentaHandler>(_ventaRepository,_productoRepository, _mapper);
+        
+       // _registrarVentaHandler = new RegistrarVentaHandler (_productoRepository, _ventaRepository, _mapper);
         
     }
     [Fact]
