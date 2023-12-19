@@ -1,11 +1,7 @@
 using AutoMapper;
 using Venta.Domain.Repositories;
  
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
  
 using Models = Venta.Domain.Models;
 
@@ -39,7 +35,7 @@ public  class RegistrarVentaHandler
         {
             //1 - Validar si el productos existe
             var productoEncontrado = await _productoRepository.ConsultarPorId(detalle.IdProducto);
-            if(productoEncontrado?.IdProducto<=0)
+            if(productoEncontrado == null)
             {
                 throw new Exception($"Producto no encontrado, código {detalle.IdProducto}");
             }
