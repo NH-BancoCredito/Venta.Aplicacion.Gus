@@ -64,6 +64,22 @@ public class AdministrarVentasTest
  
         Assert.NotNull(result); 
     }
+    [Fact]
+    public async Task ReservarStock()
+    {
+       
+        _productoRepository.ConsultarPorId(Arg.Any<int>()).Returns(Task.FromResult(new Producto { Stock = 0 }));
+        _ventaRepository.ReservarStock(Arg.Any<int>(), Arg.Any<int>()).Throws(new Exception());
+
+        var reqVenta = RegistrarVentaRequest();
+     
+        await Assert.ThrowsAsync<Exception>(async () =>
+        {
+            await _registrarVentaHandler.Registrar(reqVenta);
+        });
+    }
+
+  
  
 
     private static RegistrarVentaRequest RegistrarVentaRequest()
