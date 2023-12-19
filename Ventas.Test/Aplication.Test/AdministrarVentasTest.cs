@@ -61,8 +61,8 @@ public class AdministrarVentasTest
         var reqVenta = RegistrarVentaRequest();
         var result = await _registrarVentaHandler.Registrar( reqVenta );
 
-        // Assert
-        Assert.NotNull(result); // Verifica que la venta se haya registrado correctamente
+ 
+        Assert.NotNull(result); 
     }
  
 
