@@ -1,6 +1,8 @@
+using MediatR;
+
 namespace Ventas.Application.CasosUso.AdministrarVentas.RegistrarVenta;
 
-public class RegistrarVentaRequest
+public class RegistrarVentaRequest : IRequest<RegistrarVentaResponse>
 {
 
     public int IdCliente {  get; set; }

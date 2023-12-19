@@ -17,6 +17,8 @@ namespace Venta.Domain.Repositories
 
         Task<IEnumerable<Producto>> Consultar(string nombre);
         
+        Task ReservarStock(int detalleIdProducto, int detalleCantidad);
+        
       
     }
 }

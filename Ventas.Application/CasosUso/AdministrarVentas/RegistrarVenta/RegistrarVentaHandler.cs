@@ -1,4 +1,5 @@
 using AutoMapper;
+using MediatR;
 using Venta.Domain.Repositories;
  
 
@@ -8,7 +9,7 @@ using Models = Venta.Domain.Models;
 
 namespace Ventas.Application.CasosUso.AdministrarVentas.RegistrarVenta;
 
-public  class RegistrarVentaHandler
+public  class RegistrarVentaHandler : IRequestHandler<RegistrarVentaRequest, RegistrarVentaResponse>
 {
     private readonly IVentaRepository _ventaRepository;
     private readonly IProductoRepository _productoRepository;
@@ -53,7 +54,7 @@ public  class RegistrarVentaHandler
             // Reservar el stock del producto
             try
             {
-                await _ventaRepository.ReservarStock(detalle.IdProducto, detalle.Cantidad);
+                await _productoRepository.ReservarStock(detalle.IdProducto, detalle.Cantidad);
             }
             catch (Exception ex)
             {
@@ -76,4 +77,8 @@ public  class RegistrarVentaHandler
         return response;
     }
 
+    public Task<RegistrarVentaResponse> Handle(RegistrarVentaRequest request, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -10,5 +10,5 @@ namespace Venta.Domain.Repositories;
 public interface IVentaRepository
 {
     Task<bool> Registrar(Models.Venta venta);
-    Task ReservarStock(int detalleIdProducto, int detalleCantidad);
+
 }
