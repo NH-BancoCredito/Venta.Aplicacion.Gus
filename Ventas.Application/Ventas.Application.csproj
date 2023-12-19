@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Venta.Domain\Venta.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+
 </Project>
