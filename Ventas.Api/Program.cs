@@ -13,12 +13,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+ 
+
 //se agregaby ñlp yñu   
 //Capa de aplicacion-´
 builder.Services.AddAplication(); 
 
-//Capa de infra
-builder.Services.AddInfraestructure();
+ 
+
+var connectionString = builder.Configuration.GetConnectionString("dbVenta-cnx");
+
+builder.Services.AddInfraestructure(connectionString);
 
 var app = builder.Build();
 
@@ -32,6 +38,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+
+//Adicionar Middleware customizado para tratar las excepciones
+//app.
 
 app.MapControllers();
 

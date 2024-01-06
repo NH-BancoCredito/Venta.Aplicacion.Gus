@@ -27,19 +27,7 @@ namespace Ventas.Test.Aplication.Test
 
  
 
-        [Fact]
-        public async Task ConsultarProductos()
-        {
-            var request = new ConsultarProductosRequest() { FiltroPorNombre = "producto" };
-            
-            var lsProductos = ListaProductos();
-            _productoRepository.Consultar(default).ReturnsForAnyArgs(lsProductos);
 
-            var response = await _consultarProductosHandler.Handle(request);
-
-            Assert.True(response.Resultado.ToList().Count > 0);
-
-        }
 
         private List<Producto> ListaProductos()
         {

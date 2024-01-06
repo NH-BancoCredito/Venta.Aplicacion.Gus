@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 using Venta.Domain.Repositories;
+using Ventas.Application.Common;
 
 namespace Ventas.Application.CasosUso.AdministrarProductos.ConsultarProductos
 {
-    public class ConsultarProductosHandler : IRequestHandler<ConsultarProductosRequest, ConsultarProductosResponse>
+    public class ConsultarProductosHandler : IRequestHandler<ConsultarProductosRequest, IResult>
     {
         private readonly IProductoRepository _productoRepository;
         private readonly IMapper _mapper;
@@ -20,28 +21,26 @@ namespace Ventas.Application.CasosUso.AdministrarProductos.ConsultarProductos
             _mapper = mapper;
         }
 
-        public async Task<ConsultarProductosResponse> Handle(ConsultarProductosRequest request)
+        public async Task<IResult> Handle(ConsultarProductosRequest request, CancellationToken cancellationToken)
         {
-            var response = new ConsultarProductosResponse();
 
-            var datos = await _productoRepository.Consultar(request.FiltroPorNombre);
+            IResult response = null;
 
-            response.Resultado = _mapper.Map<IEnumerable<ConsultaProducto>>(datos);
+            try
+            {
+               
+                var datos = await _productoRepository.Consultar(request.FiltroPorNombre);
+                response = new SuccessResult<IEnumerable<ConsultaProducto>>(
+                    _mapper.Map<IEnumerable<ConsultaProducto>>(datos)
+                );
 
-
-            return response;
-        }
-
-        public async Task<ConsultarProductosResponse> Handle(ConsultarProductosRequest request, CancellationToken cancellationToken)
-        {
-            var response = new ConsultarProductosResponse();
-
-            var datos = await _productoRepository.Consultar(request.FiltroPorNombre);
-
-            response.Resultado = _mapper.Map<IEnumerable<ConsultaProducto>>(datos);
-
-
-            return response;
+                return response;
+            }
+            catch(Exception ex)
+            {
+                response = new FailureResult();
+                return response;
+            }
         }
     }
 }
